@@ -59,6 +59,10 @@ jobs:
         with:
           repository: ${{ env.REMOTE_REPOSITORY }}
           ref: ${{ env.REMOTE_BRANCH }}
+      - name: Change NSS-Packages branch
+        run: |
+          sed -i 's|src-git nss_packages https://github.com/qosmio/nss-packages.git;NSS-12.5-K6.x|src-git nss_packages https://github.com/qosmio/nss-packages.git;NSS-12.5-K6.x-NAPI|' feeds.conf.default
+          cat feeds.conf.default
       - name: Checkout current repository
         uses: actions/checkout@v4
         with:
