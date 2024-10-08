@@ -81,7 +81,7 @@ jobs:
         run: make download V=s -j$(nproc)
 
       - name: Build the firmware image
-        run: make world V=s -j$(nproc)
+        run: make world -j$(nproc)
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
